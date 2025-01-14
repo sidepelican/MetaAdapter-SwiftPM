@@ -2,11 +2,12 @@
 
 VERSION=6.16.0
 wget -O FBAudienceNetwork-${VERSION}.zip https://developers.facebook.com/resources/FBAudienceNetwork-${VERSION}.zip
-unzip -o FBAudienceNetwork-${VERSION}.zip
+unzip -q -o FBAudienceNetwork-${VERSION}.zip
 
 FRAMEWORK1=Static/FBAudienceNetwork.xcframework/ios-arm64/FBAudienceNetwork.framework
 FRAMEWORK2=Static/FBAudienceNetwork.xcframework/ios-arm64_x86_64-simulator/FBAudienceNetwork.framework
 
+# プレースホルダがあるとサブミットに失敗するので適当な値に上書き
 function updatePlist() {
   local plist=$1
   /usr/libexec/PlistBuddy -c "Set :CFBundleVersion 1.0" ${plist}
@@ -14,6 +15,10 @@ function updatePlist() {
 }
 updatePlist ${FRAMEWORK1}/Info.plist
 updatePlist ${FRAMEWORK2}/Info.plist
+
+# umbrella headerに含まれてないヘッダーに警告が出るので削除
+rm -f ${FRAMEWORK1}/Headers/FBAudienceNetwork-Swift.h
+rm -f ${FRAMEWORK2}/Headers/FBAudienceNetwork-Swift.h
 
 rm -rf FBAudienceNetwork.xcframework
 xcodebuild -create-xcframework -framework ${FRAMEWORK1} -framework ${FRAMEWORK2} -output FBAudienceNetwork.xcframework
