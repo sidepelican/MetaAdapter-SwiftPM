@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 
-VERSION=6.16.0
+VERSION=6.17.1
 wget -O FBAudienceNetwork-${VERSION}.zip https://developers.facebook.com/resources/FBAudienceNetwork-${VERSION}.zip
 unzip -q -o FBAudienceNetwork-${VERSION}.zip
 
@@ -15,10 +15,6 @@ function updatePlist() {
 }
 updatePlist ${FRAMEWORK1}/Info.plist
 updatePlist ${FRAMEWORK2}/Info.plist
-
-# umbrella headerに含まれてないヘッダーに警告が出るので削除
-rm -f ${FRAMEWORK1}/Headers/FBAudienceNetwork-Swift.h
-rm -f ${FRAMEWORK2}/Headers/FBAudienceNetwork-Swift.h
 
 rm -rf FBAudienceNetwork.xcframework
 xcodebuild -create-xcframework -framework ${FRAMEWORK1} -framework ${FRAMEWORK2} -output FBAudienceNetwork.xcframework

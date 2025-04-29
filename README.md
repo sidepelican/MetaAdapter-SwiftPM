@@ -1,6 +1,8 @@
+### FBAudienceNetwork
 
-```
-wget https://developers.facebook.com/resources/FBAudienceNetwork-6.16.0.zip
-```
+`setup.sh`を使う。中でバージョンを書き換えてから実行
 
-中にある`Static`の中にある`FBAudienceNetwork.xcframework`をルートに置く
+### MetaAdapter
+
+最新のpodspecからMetaAdapterのバイナリダウンロードリンクを取得
+https://github.com/CocoaPods/Specs/tree/master/Specs/4/1/b/GoogleMobileAdsMediationFacebook
