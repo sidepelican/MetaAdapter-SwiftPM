@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 
-VERSION=6.17.1
+VERSION=6.20.1
 wget -O FBAudienceNetwork-${VERSION}.zip https://developers.facebook.com/resources/FBAudienceNetwork-${VERSION}.zip
 unzip -q -o FBAudienceNetwork-${VERSION}.zip
 

@@ -23,8 +23,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "MetaAdapter",
-            url: "https://dl.google.com/googleadmobadssdk/mediation/ios/meta/MetaAdapter-6.17.1.0.zip",
-            checksum: "472cfedbf403d9effc6f21b56f086d06e5644a4823c993edeff7ae5a4bb48e9b"
+            url: "https://dl.google.com/googleadmobadssdk/mediation/ios/meta/MetaAdapter-6.20.1.0.zip",
+            checksum: "3d1a8ca528d87aadf2124d46425848702c3194a71e9b738c452a84806bbae58a"
         ),
         .binaryTarget(
             name: "FBAudienceNetwork",
